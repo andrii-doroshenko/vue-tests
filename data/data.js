@@ -31,4 +31,21 @@ export const data = {
       avatar: genderChoose("male"),
     },
   ],
+  newUsers: [
+    {
+      id: 6,
+      name: "User 1",
+      avatar: genderChoose("male"),
+    },
+    {
+      id: 7,
+      name: "User 2",
+      avatar: genderChoose("female"),
+    },
+    {
+      id: 8,
+      name: "User 3",
+      avatar: genderChoose("male"),
+    },
+  ],
 };
