@@ -1,18 +1,11 @@
 <script setup>
-import draggable from "vuedraggable";
 import { data } from "../../data/data";
 import { ref } from "vue";
+import draggable from "vuedraggable";
+import UserCard from "@/components/UserCard.vue";
 
 const users = ref(data.users);
 const dragging = ref(false);
-
-const onEdit = (user) => {
-  alert(`Editing ${user.name}`);
-};
-
-const onDelete = (user) => {
-  alert(`Deleting ${user.name}`);
-};
 </script>
 
 <template>
@@ -34,6 +27,9 @@ const onDelete = (user) => {
       :animation="200"
     >
       <template #item="{ element, index }">
+        <UserCard :element="element" />
+      </template>
+      <!-- <template #item="{ element, index }">
         <li
           :key="element.id"
           class="flex cursor-move items-center justify-between rounded-lg bg-white p-4 shadow"
@@ -66,7 +62,7 @@ const onDelete = (user) => {
             </button>
           </div>
         </li>
-      </template>
+      </template> -->
     </draggable>
   </div>
 </template>
