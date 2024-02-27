@@ -1,30 +1,24 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
 import ShoppingForm from "./components/ShoppingForm.vue";
 import Counter from "./components/Counter.vue";
-
-import { ref } from "vue";
+import InputBinding from "./components/InputBinding.vue";
+import DragAndDrop from "./components/DragAndDrop.vue";
 </script>
 
 <template>
   <header>
-    <p>Header</p>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/draganddrop">Drag</a>
+    </nav>
   </header>
 
   <main>
-    <Counter />
-    <ShoppingForm />
+    <div class="wrapper space-y-10">
+      <InputBinding />
+      <Counter />
+      <ShoppingForm />
+      <DragAndDrop />
+    </div>
   </main>
 </template>
-
-<style>
-.titleClass {
-  color: red;
-}
-
-.btn {
-  cursor: pointer;
-  color: red;
-}
-</style>

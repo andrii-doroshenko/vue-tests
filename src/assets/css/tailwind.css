@@ -1,0 +1,25 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700;
+  }
+
+  .button-default {
+    @apply p-1 text-blue-500 hover:text-blue-600 focus:ring;
+  }
+}
+
+@layer utilities {
+  .input-default {
+    @apply block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500;
+  }
+
+  .moving-card {
+    @apply border border-blue-500 bg-gray-100 opacity-50;
+  }
+}

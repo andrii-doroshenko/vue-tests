@@ -19,24 +19,30 @@ const addItem = () => {
 };
 
 const deleteItem = (index) => {
-  console.dir(index);
   items.value.splice(index, 1);
 };
 </script>
 
 <template>
-  <h1>{{ header }}</h1>
-  <form @submit.prevent="addItem" class="add-item-form">
-    <input v-model.trim="newItem" type="text" placeholder="Add an Item" />
-    <button type="submit" class="btn btn-primary">Add Item</button>
-  </form>
+  <div class="container border p-4">
+    <h1>{{ header }}</h1>
+    <form @submit.prevent="addItem" class="add-item-form space-y-3">
+      <input
+        class="input-default"
+        v-model.trim="newItem"
+        type="text"
+        placeholder="Add an Item"
+      />
+      <button type="submit" class="btn btn-primary">Add Item</button>
+    </form>
 
-  <ul class="list">
-    <li class="item" v-for="({ id, label }, index) in items" :key="id">
-      {{ label }}
-      <span @click="deleteItem(index)" class="deleteIcon">&#128128;</span>
-    </li>
-  </ul>
+    <ul class="list">
+      <li class="item" v-for="({ id, label }, index) in items" :key="id">
+        {{ label }}
+        <span @click="deleteItem(index)" class="deleteIcon">&#128128;</span>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped>
@@ -47,7 +53,7 @@ const deleteItem = (index) => {
   padding: 10px;
   border: 1px solid;
   border-radius: 10px;
-  box-shadow: 0px 7px 5px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.2);
 }
 .deleteIcon {
   position: absolute;

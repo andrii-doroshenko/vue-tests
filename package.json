@@ -9,11 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1",
-    "vue": "^3.4.15"
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "vue": "^3.4.15",
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.3",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "tailwindcss": "^3.4.1",
     "vite": "^5.0.11"
   }
 }

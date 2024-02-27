@@ -14,7 +14,7 @@ const reset = () => {
 
 <template>
   <div class="section">
-    <div class="counter">
+    <div class="counter space-x-10">
       <button class="btn" @click="increment">increment</button>
       <button class="btn" @click="reset">reset</button>
       <p>Count: {{ count }}</p>
