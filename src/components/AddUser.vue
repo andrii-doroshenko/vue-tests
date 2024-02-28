@@ -6,9 +6,8 @@ const store = useUsersStore();
 const newItem = ref("");
 
 const handleAddUser = () => {
-  if (newItem !== "") {
-    store.addUser(newItem.value);
-  }
+  if (!newItem.value) return;
+  store.addUser(newItem.value);
   newItem.value = "";
 };
 </script>

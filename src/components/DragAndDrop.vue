@@ -24,7 +24,9 @@ const dragging = ref(false);
 
 <template>
   <div class="section rounded-lg bg-gray-200 p-10">
-    <div class="container mx-auto flex flex-col sm:flex-row sm:space-x-3">
+    <div
+      class="container mx-auto flex flex-col justify-center sm:flex-row sm:space-x-3"
+    >
       <div class="w-full max-w-md text-center">
         <p class="mb-2 font-sans font-semibold tracking-wide text-gray-700">
           List 1

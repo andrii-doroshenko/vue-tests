@@ -10,7 +10,7 @@
 
   <main>
     <div class="wrapper space-y-10 px-4">
-      <router-view></router-view>
+      <router-view />
     </div>
   </main>
 </template>
