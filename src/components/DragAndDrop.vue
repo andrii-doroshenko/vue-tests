@@ -1,11 +1,14 @@
 <script setup>
-import { data } from "../../data/data";
 import { ref } from "vue";
+
+import { useUsersStore } from "@/store/usersStor";
+import { storeToRefs } from "pinia";
 import draggable from "vuedraggable";
 import UserCard from "@/components/UserCard.vue";
 
-const users = ref(data.users);
-const newUsers = ref(data.newUsers);
+const store = useUsersStore();
+
+const { users, newUsers } = storeToRefs(store);
 const dragging = ref(false);
 </script>
 
