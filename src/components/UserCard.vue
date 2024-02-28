@@ -1,12 +1,10 @@
 <script setup>
-const props = defineProps(["element"]);
+const props = defineProps(["element", "onDelete"]);
 
-const onEdit = (user) => {
-  alert(`Editing ${user.name}`);
-};
-
-const onDelete = (user) => {
-  alert(`Deleting ${user.name}`);
+const onDeleteLocal = () => {
+  if (props.onDelete) {
+    props.onDelete(props.element);
+  }
 };
 </script>
 
@@ -27,13 +25,6 @@ const onDelete = (user) => {
     </div>
 
     <div class="flex">
-      <button
-        aria-label="Edit user"
-        @click="onEdit(element)"
-        class="button-default"
-      >
-        edit
-      </button>
       <button
         aria-label="Delete user"
         @click="onDelete(element)"

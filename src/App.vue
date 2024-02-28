@@ -1,24 +1,27 @@
-<script setup>
-import ShoppingForm from "./components/ShoppingForm.vue";
-import Counter from "./components/Counter.vue";
-import InputBinding from "./components/InputBinding.vue";
-import DragAndDrop from "./components/DragAndDrop.vue";
-</script>
+<script setup></script>
 
 <template>
   <header>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/draganddrop">Drag</a>
+    <nav class="bg-orange-300">
+      <router-link to="/">Home</router-link>
+      <router-link to="/draggpage">Drag Page</router-link>
     </nav>
   </header>
 
   <main>
-    <div class="wrapper space-y-10">
-      <InputBinding />
-      <Counter />
-      <ShoppingForm />
-      <DragAndDrop />
+    <div class="wrapper space-y-10 px-4">
+      <router-view></router-view>
     </div>
   </main>
 </template>
+
+<style scoped>
+a {
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+</style>
