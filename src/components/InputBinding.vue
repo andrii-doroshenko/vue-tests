@@ -21,6 +21,7 @@ const checkedNames = ref([]);
       <label for="dariia">Дарія</label>
 
       <input
+        autocomplete="current-password"
         type="checkbox"
         id="victoria"
         value="Вікторія"

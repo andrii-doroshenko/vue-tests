@@ -10,11 +10,17 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.17",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "i": "^0.3.7",
+    "npm": "^10.5.0",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
     "postcss": "^8.4.35",
     "vue": "^3.4.15",
     "vue-router": "^4.3.0",
+    "vue3-google-login": "^2.0.26",
+    "vue3-google-oauth2": "^1.0.7",
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
