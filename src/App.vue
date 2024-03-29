@@ -1,8 +1,8 @@
 <script setup></script>
 
 <template>
-  <header>
-    <nav class="bg-orange-300">
+  <header class="flex">
+    <nav class="ml-auto">
       <router-link to="/">Home</router-link>
       <router-link to="/draggpage">Drag Page</router-link>
       <router-link to="/test">Testing</router-link>

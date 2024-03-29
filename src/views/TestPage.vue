@@ -1,28 +1,27 @@
 <script setup>
-import axios from "axios";
-import { onMounted, ref, reactive } from "vue";
+import { ref, reactive } from "vue";
+import apiClient from "@/services/api.js";
+import AccPreviewVue from "@/components/AccPreviews.vue";
+import { storeToRefs } from "pinia";
 
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZUlkIjoxLCJpYXQiOjE3MTA4MzQ0NDcsImV4cCI6MTcxMzQyNjQ0N30.FPavhCMoSvfRXnEnIFdNpu9G9patyYSbqLhRVlkGbes";
+const token = import.meta.env.VITE_API_TOKEN;
 
 const state = reactive({
-  content: "",
   loading: false,
   cvId: null,
+  pdfBlob: null,
 });
 
 const fetchData = async () => {
   state.loading = true;
   try {
-    const { data } = await axios.get(
-      `http://localhost:3000/api/cvs/${state.cvId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+    const response = await apiClient.get(`/cvs/generate/${state.cvId}`, {
+      responseType: "blob",
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
-    );
-    state.content = data.data.html;
+    });
+    state.pdfBlob = response.data;
   } catch (error) {
     console.error(error.message);
   } finally {
@@ -30,17 +29,28 @@ const fetchData = async () => {
     state.cvId = null;
   }
 };
+
+const handleDownloadPdf = () => {
+  if (state.pdfBlob) {
+    const url = URL.createObjectURL(state.pdfBlob);
+    window.open(url, "_blank");
+  }
+};
 </script>
 
 <template>
   <h1>Test Page</h1>
+
+  <ul>
+    <AccPreviewVue />
+  </ul>
 
   <div class="mx-auto text-center">
     <h3 v-if="state.loading">Loading...</h3>
     <form
       v-else
       @submit.prevent="fetchData"
-      class="mx-auto flex w-[350px] flex-col items-center justify-center space-y-5"
+      class="mx-auto mb-9 flex w-[350px] flex-col items-center justify-center space-y-5"
     >
       <label>Download cv by id</label>
       <input
@@ -52,6 +62,9 @@ const fetchData = async () => {
       />
       <button class="btn" :disabled="!state.cvId">DownloadCv</button>
     </form>
+
+    <button v-if="state.pdfBlob" @click="handleDownloadPdf" class="btn">
+      Download PDF
+    </button>
   </div>
-  <div v-html="state.content" />
 </template>

@@ -1,22 +1,25 @@
 <script setup>
-import { inject } from "vue";
+import { googleTokenLogin } from "vue3-google-login";
 
-const Vue3GoogleOauth = inject("Vue3GoogleOauth");
+const emit = defineEmits(["googleUserRegistered"]);
 
-const login = () => {
-  console.log("clicked");
+const googleSignIn = async () => {
+  try {
+    const googleUserData = await googleTokenLogin();
+    emit("googleUserRegistered", googleUserData);
+  } catch (error) {
+    console.error("Error signing in with Google:", error);
+  }
 };
 </script>
 
 <template>
-  <h1 class="text-white">Is Initialized: {{ Vue3GoogleOauth.isInit }}</h1>
-
   <button
+    @click="googleSignIn"
     type="button"
-    @click="login"
-    class="mx-auto flex w-[335px] items-center rounded-lg border-none bg-[#15CB76] p-2 text-center text-[19px] font-bold hover:bg-[#1abb70]"
+    class="mx-auto mb-9 flex w-full items-center rounded-lg border-none bg-[#15CB76] p-2 text-center text-lg font-bold hover:bg-[#1abb70]"
   >
     <span class="mr-[54px]"><img src="/google-img.png" alt="img" /></span>
-    Sign in with Google
+    Sign up with Google
   </button>
 </template>

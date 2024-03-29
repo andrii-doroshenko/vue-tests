@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 
-import { useUsersStore } from "@/store/usersStor";
+import { useUsersStore } from "@/stores/usersStor";
 import { storeToRefs } from "pinia";
 import draggable from "vuedraggable";
 import UserCard from "@/components/UserCard.vue";

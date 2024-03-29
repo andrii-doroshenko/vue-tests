@@ -20,7 +20,6 @@
     "vue": "^3.4.15",
     "vue-router": "^4.3.0",
     "vue3-google-login": "^2.0.26",
-    "vue3-google-oauth2": "^1.0.7",
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {

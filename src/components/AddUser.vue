@@ -1,5 +1,5 @@
 <script setup>
-import { useUsersStore } from "@/store/usersStor";
+import { useUsersStore } from "../stores/usersStor";
 import { ref } from "vue";
 
 const store = useUsersStore();
@@ -37,3 +37,4 @@ const handleAddUser = () => {
   box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.2);
 }
 </style>
+../stores/usersStor
