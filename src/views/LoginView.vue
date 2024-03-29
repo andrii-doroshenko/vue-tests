@@ -48,17 +48,30 @@ const registerWithGoogle = async (googleUserData) => {
 
 <template>
   <div class="section flex h-screen items-center justify-center">
-    <div>
+    <div class="flex w-full">
+      <div class="hidden basis-1/2 items-end bg-[#15CB76] xl:flex">
+        <img
+          src="/landing_img.png"
+          class="w-full object-cover"
+          alt="Women with note"
+        />
+      </div>
       <form
         @submit.prevent="register"
-        class="flex w-[400px] flex-col items-center space-y-9 border-gray-300 p-5 text-gray-900"
+        class="mx-auto flex w-[400px] flex-col items-center space-y-9 border-gray-300 p-5 text-gray-900 caret-[#15CB76]"
       >
         <h1 class="text-center text-4xl font-semibold">Let's join us</h1>
 
         <GoogleAuthVue @googleUserRegistered="registerWithGoogle" />
 
-        <p class="text-center font-bold">
-          -------Or, sign up with your email------
+        <p
+          class="flex w-full items-center whitespace-nowrap text-center font-bold"
+        >
+          <span
+            class="mr-4 inline-block h-[2px] w-full rounded-sm bg-[#E5EAF4]"
+          ></span>
+          Or, sign up with your email
+          <span class="ml-4 inline-block h-[2px] w-full bg-[#E5EAF4]"></span>
         </p>
 
         <div class="w-full font-bold">
